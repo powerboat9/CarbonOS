@@ -1,4 +1,6 @@
 # CarbonOS
 Welcome to Carbon! This OS will have tons of features, a GUI, and so much more!
-The OS is still in beta but sadly you cannot try it yet because there is no pastebin yet!
-We will update this when there is a pastebin
+But keep in mind, the OS is still in beta and might have crashes and bugs.
+Please report all issues on the Issues tab!
+To test it out type pastebin run 5BsVEnu3
+This OS does not auto-update yet but it will auto-update soon!
