@@ -2,7 +2,19 @@ local files = {
     [1] = {
         "/System/Images/boot",
         "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/Images/boot"
-    }
+    },
+    [2] = {
+        "startup",
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/startup"
+    },
+    [3] = {
+        "/Programs/LuaIDE/program",
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/LuaIDE/program"
+   },
+   [4] = {
+       "/Programs/Sketch/program"
+       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/Sketch/program"
+   }
 }        
 term.setBackgroundColor(colors.gray)
 term.clear()
@@ -24,6 +36,7 @@ if x >= 21 and x < 28 and y == 16 then
    local code
    local file
    for k,v in pairs(files) do
+       print("Downloading ", files, "...")
        req = http.get(v[2])
        if req ~= nil then
        code = req.readAll()
