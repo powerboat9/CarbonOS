@@ -1,0 +1,5 @@
+boot = paintutils.loadImage("/System/Images/boot")
+term.clear()
+paintutils.drawImage(boot, 1,1)
+os.sleep(2)
+term.clear()
