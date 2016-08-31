@@ -82,3 +82,4 @@ if latestver == thisver then
 else
    shell.run("/os")
 end
+end
