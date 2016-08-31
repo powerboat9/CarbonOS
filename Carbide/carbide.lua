@@ -24,5 +24,32 @@ for k, v in pairs(rawDeamons) do
         ["Function"] = loadstring(deamonFile.readAll()),
         ["AutoRestart"] = false,
     }
+
+    deamonFile.close()
+
+    print("Loaded: "..v)
+end
+
+_G.carbide = {}
+
+_G.carbide["getRunningProcesses"] = function()
+    return unpack(deamons)
+end
+
+_G.carbide["startNewProcess"] = function(toRun, name, priority, autorestart)
+    deamons[#deamons + 1] = {
+        ["Name"] = name,
+        ["Priority"] = priority,
+        ["Function"] = toRun,
+        ["AutoRestart"] = autorestart,
+    }
+end
+
+_G.carbide["stopProcess"] = function(pid)
+    if deamons[pid] ~= nil then
+        deamons[pid] = nil
+    else
+        return false
+    end
 end
 
