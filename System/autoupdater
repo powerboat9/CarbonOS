@@ -76,5 +76,5 @@ if latestver = thisver == true then
    file.write(code)
    file.close()
 else
-   shell.run("os")
+   shell.run("/os")
 
