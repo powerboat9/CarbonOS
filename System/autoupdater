@@ -1,0 +1,6 @@
+local url = "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/System/.version"
+code = url.readAll()
+file = fs.open(".version", "w")
+file.write(code)
+file.close()
+file = fs.open(".version", "r")
