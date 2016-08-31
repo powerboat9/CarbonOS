@@ -81,4 +81,4 @@ if latestver == thisver then
    file.close()
 else
    shell.run("/os")
-
+end
