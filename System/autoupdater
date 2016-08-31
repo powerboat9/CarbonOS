@@ -35,6 +35,10 @@ local files = {
  [9] = {
      "/System/autoupdater",
      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/autoupdater"
+ },
+ [10] = {
+      "/System/.version",
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version"
  }
 }
 code = url.readAll()
