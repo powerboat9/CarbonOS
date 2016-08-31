@@ -39,8 +39,12 @@ local files = {
  [10] = {
       "/System/.version",
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version"
+ },
+ [11] = {
+      "/os",
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  }
-}
+}  
 code = url.readAll()
 shell.run("cd", "/System")
 file = fs.open("latestversion", "w")
