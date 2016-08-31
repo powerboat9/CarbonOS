@@ -75,4 +75,6 @@ if latestver = thisver == true then
    file = fs.open(v[1], "w")
    file.write(code)
    file.close()
+else
+   shell.run("os")
 
