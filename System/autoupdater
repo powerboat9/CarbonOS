@@ -52,9 +52,9 @@ file.write(code)
 file.close()
 file = fs.open("latestversion", "r")
 compare = fs.open(".version", "r")
-latestver = file.readLine()
-thisver = compare.readLine()
-if latestver = thisver then
+local latestver = file.readLine()
+local thisver = compare.readLine()
+if latestver == thisver then
    file.close()
    compare.close()
    fs.delete("latestversion")
