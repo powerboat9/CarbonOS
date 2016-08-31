@@ -54,7 +54,7 @@ file = fs.open("latestversion", "r")
 compare = fs.open(".version", "r")
 latestver = file.readLine()
 thisver = compare.readLine()
-if latestver == thisver then
+if latestver = thisver then
    file.close()
    compare.close()
    fs.delete("latestversion")
