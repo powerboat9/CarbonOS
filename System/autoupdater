@@ -75,6 +75,7 @@ if latestver == thisver then
        else
        print("Failed!")
    end
+   end
    
    file = fs.open(v[1], "w")
    file.write(code)
