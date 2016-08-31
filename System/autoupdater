@@ -45,6 +45,7 @@ local files = {
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  }
 }  
+for k,v in pairs(files) do
 req = http.get(v[2])
 code = req.readAll()
 shell.run("cd", "/System")
@@ -53,11 +54,13 @@ file.write(code)
 file.close()
 file = fs.open("latestversion", "r")
 compare = fs.open(".version", "r")
+end
 local latestver = file.readLine()
 local thisver = compare.readLine()
+file.close()
+compare.close()
 if latestver == thisver then
-   file.close()
-   compare.close()
+
    fs.delete("latestversion")
    shell.run("cd", "/")
    fs.delete("/System")
@@ -67,19 +70,19 @@ if latestver == thisver then
    local req
    local code
    local file
-   for k,v in pairs(files) do
        print("Downloading ", v[2], "...")
        req = http.get(v[2])
        if req ~= nil then
        code = req.readAll()
        req.close()
-       else
+   else
        print("Failed!")
    end
    
    file = fs.open(v[1], "w")
    file.write(code)
    file.close()
+   end
 else
    shell.run("/os")
 end
