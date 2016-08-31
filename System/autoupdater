@@ -54,6 +54,7 @@ file.write(code)
 file.close()
 file = fs.open("latestversion", "r")
 compare = fs.open(".version", "r")
+end
 local latestver = file.readLine()
 local thisver = compare.readLine()
 file.close()
