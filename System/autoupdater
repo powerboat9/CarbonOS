@@ -45,7 +45,8 @@ local files = {
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  }
 }  
-code = url.readAll()
+req = http.get(v[2])
+code = req.readAll()
 shell.run("cd", "/System")
 file = fs.open("latestversion", "w")
 file.write(code)
