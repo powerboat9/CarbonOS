@@ -1,6 +1,70 @@
-local url = "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/System/.version"
+local url = "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/System/latestversion"
+local files = {
+    [1] = {
+        "/System/Images/boot",
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/Images/boot"
+    },
+    [2] = {
+        "startup",
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/startup"
+    },
+    [3] = {
+        "/Programs/LuaIDE/program",
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/LuaIDE/program"
+   },
+   [4] = {
+       "/Programs/Sketch/program",
+       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/Sketch/program"
+   },
+   [5] = {
+       "/Desktop/LuaIDE",
+       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Desktop/LuaIDE"
+  },
+  [6] = {
+      "/Desktop/Sketch",
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Desktop/Sketch"
+  },
+  [7] = {
+      "/System/Images/desktop",
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/Images/desktop"
+ },
+ [8] = {
+     "/System/settings",
+     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/settings"
+ }
+}
 code = url.readAll()
-file = fs.open(".version", "w")
+shell.run("cd", "/System")
+file = fs.open("latestversion", "w")
 file.write(code)
 file.close()
-file = fs.open(".version", "r")
+file = fs.open("latestversion", "r")
+compare = fs.open(".version", "r")
+latestver = file.readLine()
+thisver = compare.readLine()
+if latestver = thisver == true then
+   file.close()
+   compare.close()
+   fs.delete("latestversion")
+   shell.run("cd", "/")
+   fs.delete("/System")
+   fs.delete("/Programs")
+   fs.delete("/Desktop")
+   print("Updating...")
+   local req
+   local code
+   local file
+   for k,v in pairs(files) do
+       print("Downloading ", v[2], "...")
+       req = http.get(v[2])
+       if req ~= nil then
+       code = req.readAll()
+       req.close()
+       else
+       print("Failed!")
+   end
+   
+   file = fs.open(v[1], "w")
+   file.write(code)
+   file.close()
+
