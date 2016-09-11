@@ -78,4 +78,3 @@ local files = {
     else
        shell.run("/os")
     end
-  end
