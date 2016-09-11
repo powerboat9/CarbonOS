@@ -1,4 +1,4 @@
-local url = "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/latestversion"
+local latestver = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/latestversion")
 local files = {
     [1] = {
         "/System/Images/boot",
@@ -46,16 +46,12 @@ local files = {
  }
 }  
 for k,v in pairs(files) do
-    req = http.get(v[2])
-    code = req.readAll()
+    local req = http.get(v[2])
+    local code = req.readAll()
     shell.run("cd", "/System")
-    tmpl = http.get(url)
     tmpc = fs.open("/System/.version", "r")
-    tmpr = tmpc.readAll()
-    currentver = tonumber(tmpr)
-    latest = tmpl.readAll()
-    tmpl.close()
-    if latest > currentver then
+    local currentver = tmpc.readAll()
+    if not latestver == currentver then
        fs.delete("latestversion")
        shell.run("cd", "/")
        fs.delete("/System")
