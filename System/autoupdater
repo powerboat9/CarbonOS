@@ -1,4 +1,5 @@
-local latestver = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/latestversion")
+local url = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/latestversion")
+
 local files = {
     [1] = {
         "/System/Images/boot",
@@ -50,8 +51,13 @@ for k,v in pairs(files) do
     local code = req.readAll()
     shell.run("cd", "/System")
     tmpc = fs.open("/System/.version", "r")
-    local currentver = tmpc.readAll()
-    if not latestver == currentver then
+    local f = fs.open("/System/.version","r")
+    local currentVersion = f.readAll()
+    f.close()
+    local hget = http.get(url)
+    local remoteVersion = hget.readAll()
+    hget.close()
+    if not currentVersion == remoteVersion then
        fs.delete("latestversion")
        shell.run("cd", "/")
        fs.delete("/System")
