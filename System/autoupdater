@@ -46,9 +46,6 @@ local files = {
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  }
 }  
-for k,v in pairs(files) do
-    local req = http.get(v[2])
-    local code = req.readAll()
     shell.run("cd", "/System")
     tmpc = fs.open("/System/.version", "r")
     local f = fs.open("/System/.version","r")
@@ -64,6 +61,7 @@ for k,v in pairs(files) do
        fs.delete("/Programs")
        fs.delete("/Desktop")
        print("Updating...")
+       for k,v in pairs(files) do
        print("Downloading ", v[2], "...")
        req = http.get(v[2])
        if req ~= nil then
