@@ -1,5 +1,4 @@
-local url = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/latestversion")
-
+local nextFile = ""
 local files = {
     [1] = {
         "/System/Images/boot",
@@ -45,36 +44,34 @@ local files = {
       "/os",
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  }
-}  
-    shell.run("cd", "/System")
-    tmpc = fs.open("/System/.version", "r")
-    local f = fs.open("/System/.version","r")
-    local currentVersion = f.readAll()
-    f.close()
-    local hget = http.get(url)
-    local remoteVersion = hget.readAll()
-    hget.close()
-    if not currentVersion == remoteVersion then
-       fs.delete("latestversion")
-       shell.run("cd", "/")
-       fs.delete("/System")
-       fs.delete("/Programs")
-       fs.delete("/Desktop")
-       print("Updating...")
-       for k,v in pairs(files) do
-       print("Downloading ", v[2], "...")
-       req = http.get(v[2])
-       if req ~= nil then
-           code = req.readAll()
-           req.close()
-       else
-           print("Failed!")
-       end
-       end
+}
 
-       file = fs.open(v[1], "w")
-       file.write(code)
-       file.close()
-    else
-       shell.run("/os")
+local remoteVerion = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version")
+
+local localVersion = fs.open("System/.version", "r")
+
+local currentVer = localVersion.readAll()
+
+localVersion.close()
+
+if remoteVerion.readAll() ~= localVersion.readAll() then
+    for k, v in pairs(files) do
+        local currentFile = fs.open(v[1], "w")
+
+        local remoteFile = http.get(v[2])
+
+        if remoteFile ~= nil then
+            currentFile.write(remoteFile.readAll)
+        end
+
+        currentFile.close()
+
+        remoteFile.close()
     end
+end
+
+local next = fs.open(nextFile, "r")
+
+pcall(loadstring(next.readAll()))
+
+--Put code to run if the os crashes
