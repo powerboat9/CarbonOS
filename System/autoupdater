@@ -70,6 +70,7 @@ local files = {
        else
            print("Failed!")
        end
+       end
 
        file = fs.open(v[1], "w")
        file.write(code)
@@ -79,4 +80,3 @@ local files = {
     end
    end
   end
- end
