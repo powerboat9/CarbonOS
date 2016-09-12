@@ -1,4 +1,4 @@
-local nextFile = ""
+local nextFile = "/.os"
 local files = {
     [1] = {
         "/System/Images/boot",
@@ -70,10 +70,8 @@ if remoteVerion.readAll() ~= localVersion.readAll() then
     end
 end
 
---local next = fs.open(nextFile, "r")
+local next = fs.open(nextFile, "r")
 
---pcall(loadstring(next.readAll()))
-
-shell.run(nextFile)
+pcall(loadstring(next.readAll()))
 
 --Put code to run if the os crashes
