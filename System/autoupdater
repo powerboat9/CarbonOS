@@ -52,9 +52,12 @@ local localVersion = fs.open("System/.version", "r")
 
 local currentVer = localVersion.readAll()
 
+local rVersion = remoteVerion.readAll()
+local lVersion = localVersion.readAll()
+
 localVersion.close()
 
-if remoteVerion.readAll() ~= localVersion.readAll() then
+if rVersion ~= lVersion then
     print("Downloading Update...")
     print("Your Verison: ", localVersion.readAll())
     print("New Version: ", remoteVersion.readAll()
