@@ -60,7 +60,7 @@ localVersion.close()
 if rVersion ~= lVersion then
     print("Downloading Update...")
     print("Your Verison: ", localVersion.readAll())
-    print("New Version: ", remoteVersion.readAll()
+    print("New Version: ", remoteVersion.readAll())
     for k, v in pairs(files) do
         local currentFile = fs.open(v[1], "w")
 
