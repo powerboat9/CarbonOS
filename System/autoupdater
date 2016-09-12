@@ -70,8 +70,10 @@ if remoteVerion.readAll() ~= localVersion.readAll() then
     end
 end
 
-local next = fs.open(nextFile, "r")
+--local next = fs.open(nextFile, "r")
 
-pcall(loadstring(next.readAll()))
+--pcall(loadstring(next.readAll()))
+
+shell.run(nextFile)
 
 --Put code to run if the os crashes
