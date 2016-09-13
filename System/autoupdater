@@ -67,7 +67,7 @@ if rVersion ~= lVersion then
         local remoteFile = http.get(v[2])
 
         if remoteFile ~= nil then
-            currentFile.write(remoteFile.readAll)
+            currentFile.write(remoteFile.readAll())
         end
 
         currentFile.close()
