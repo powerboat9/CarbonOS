@@ -49,9 +49,6 @@ local files = {
 remoteVersion = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version")
 
 local localVersion = fs.open("System/.version", "r")
-
-local currentVer = localVersion.readAll()
-
 local rVersion = remoteVerion.readAll()
 local lVersion = localVersion.readAll()
 
