@@ -1,4 +1,4 @@
-local nextFile = "/.os"
+local nextFile = "/os"
 local files = {
     [1] = {
         "/System/Images/boot",
@@ -73,8 +73,5 @@ if rVersion ~= lVersion then
     end
 end
 
-local next = fs.open(nextFile, "r")
-
-pcall(loadstring(next.readAll()))
-
---Put code to run if the os crashes
+local next = nextFile
+shell.run(next)
