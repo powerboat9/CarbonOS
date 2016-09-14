@@ -1,0 +1,10 @@
+function crash(message)
+   term.setBackgroundColor(colors.blue)
+   term.setCursorPos(1,1)
+   print("Sorry! CarbonOS has Encountered a Serious Error!")
+   print("Error: ", message)
+   print()
+   print("Press any key to reboot.")
+   os.pullEvent("key")
+   os.reboot()
+end
