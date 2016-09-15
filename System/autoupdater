@@ -43,8 +43,13 @@ local files = {
  [11] = {
       "/os",
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
-        }
+ },
+ [12] = {
+      "/System/APIs/crasher"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/crasher"
+        }     
  }
+
 
 
 remoteVersion = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version")
