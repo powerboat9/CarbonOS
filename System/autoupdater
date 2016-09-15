@@ -45,7 +45,7 @@ local files = {
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  },
  [12] = {
-      "/System/APIs/crasher"
+      "/System/APIs/crasher",
       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/crasher"
  }     
 }
