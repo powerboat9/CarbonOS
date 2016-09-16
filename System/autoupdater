@@ -50,7 +50,8 @@ local files = {
  },
  [13] = {
       "/System/APIs/sha256",
- }     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/sha256"     
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/sha256"     
+ }
 }
 
 
