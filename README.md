@@ -5,4 +5,4 @@ Please report all issues on the Issues tab!
 To test it out type pastebin run 5BsVEnu3
 This OS does not auto-update yet but it will auto-update soon!
 
-[Visit Page](https://carbon-os.github.io/CarbonOS/)
+[Visit Page](http://carbonos.tk/)
