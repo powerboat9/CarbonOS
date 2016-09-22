@@ -2,61 +2,61 @@ local nextFile = "/os"
 local files = {
     [1] = {
         "/System/Images/boot",
-        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/Images/boot"
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/Images/boot"
     },
     [2] = {
         "startup",
-        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/startup"
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/startup"
     },
     [3] = {
         "/Programs/LuaIDE/program",
-        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/Programs/LuaIDE/program"
+        "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/LuaIDE/program"
    },
    [4] = {
        "/Programs/Sketch/program",
-       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/Programs/Sketch/program"
+       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Programs/Sketch/program"
    },
    [5] = {
        "/Desktop/LuaIDE",
-       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/Desktop/LuaIDE"
+       "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Desktop/LuaIDE"
   },
   [6] = {
       "/Desktop/Sketch",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/Desktop/Sketch"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/Desktop/Sketch"
   },
   [7] = {
       "/System/Images/desktop",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/Images/desktop"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/Images/desktop"
  },
  [8] = {
      "/System/settings",
-     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/settings"
+     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/settings"
  },
  [9] = {
      "/System/autoupdater",
-     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/autoupdater"
+     "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/autoupdater"
  },
  [10] = {
       "/System/.version",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/.version"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version"
  },
  [11] = {
       "/os",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/os"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/os"
  },
  [12] = {
       "/System/APIs/crasher",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/APIs/crasher"
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/crasher"
  },
  [13] = {
       "/System/APIs/sha256",
-      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/APIs/sha256"     
+      "https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/APIs/sha256"     
  }
 }
 
 
 
-remoteVersion = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/beta/System/.version")
+remoteVersion = http.get("https://raw.githubusercontent.com/Carbon-OS/CarbonOS/master/System/.version")
 
 local localVersion = fs.open("System/.version", "r")
 local rVersion = remoteVersion.readAll()
