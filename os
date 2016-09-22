@@ -71,8 +71,7 @@ if firstUse then
    shell.run("cd", fs.combine("/System/Users/", user))
    shell.run("cd Documents")
    file = fs.open(fs.combine("/System/Users/", user), "w")
-   for _,line in ipairs(welcome) do
-   file.write(line)
+   file.write(welcome)
    end
    file.close()
    print("Done!")
