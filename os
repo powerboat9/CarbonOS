@@ -103,6 +103,6 @@ if error then
    print()
    print("Press any key to reboot.")
    os.pullEvent("key")
-   --os.reboot()
+   os.reboot()
    return
 end
