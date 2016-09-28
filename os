@@ -1,11 +1,12 @@
 local function center(txt, txtColor, bkColor)
     local oldX, oldY = term.getCursorPos()
     local x, y = term.getSize()
+    y = y / 2
     local _, lineCount = txt:gsub("\n", "")
     lineCount = lineCount + 1
-    for i = -math.ceil((lineCount - 1) / 2)
-    y = math.floor(y / 2)
-    x = 
+    local offset = (lineCount - 1) / 2
+    for i = 0 - offset, 0 + offset do
+        term.setCursorPos(y + offset
 
 
 function init()
