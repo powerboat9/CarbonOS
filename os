@@ -3,7 +3,7 @@ local function center(txt, txtColor, bkColor)
     local x, y = term.getSize()
     local _, lineCount = txt:gsub("\n", "")
     lineCount = lineCount + 1
-    for i = math.ceil((lineCount - 1) / 2)
+    for i = -math.ceil((lineCount - 1) / 2)
     y = math.floor(y / 2)
     x = 
 
