@@ -1,3 +1,12 @@
+local function center(txt, txtColor, bkColor)
+    local oldX, oldY = term.getCursorPos()
+    local x, y = term.getSize()
+    local _, lineCount = txt:gsub("\n", "")
+    lineCount = lineCount + 1
+    for i = math.ceil((lineCount - 1) / 2)
+    y = math.floor(y / 2)
+    x = 
+
 
 function init()
 boot = paintutils.loadImage("/System/Images/boot") --Turns the boot image into a variable that can be loaded at any time
