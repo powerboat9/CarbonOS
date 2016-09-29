@@ -1,18 +1,39 @@
-local function center(txt, txtColor, bkColor)
+local function center(txt, defaultOffset)
     local oldX, oldY = term.getCursorPos()
     local x, y = term.getSize()
     y = y / 2
-    local _, lineCount = txt:gsub("\n", "")
-    lineCount = lineCount + 1
-    local offset = (lineCount - 1) / 2
+    x = x / 2
+    local lines = {}
+    do
+        local temp = txt
+        while true do
+            local new = txt:match("^([^\n]*)\n?")
+            if new then
+                lines[#lines + 1] = new
+            else
+                break
+            end
+        end
+    end
+    local offset = (#lines - 1) / 2 + (defaultOffset or 0)
     for i = 0 - offset, 0 + offset do
-        term.setCursorPos(y + offset
+        term.setCursorPos(math.floor((x - #lines[i + offset + 1]) / 2), math.floor(y + offset))
+        term.write(lines[i + offset + 1])
+    end
+    term.setCursorPos(oldX, oldY)
+end
 
+local function wipe()
+    term.clear()
+    term.setCursorPos(1, 1)
+end
 
-function init()
-boot = paintutils.loadImage("/System/Images/boot") --Turns the boot image into a variable that can be loaded at any time
-desktop = paintutils.loadImage("/System/Images/desktop") --Turns the desktop background image into a variable that can be loaded at any time
-term.clear() --Clears the screen
+local function BSOD()
+    term.setBackgroundColor(term.isColor
+
+local bootImg = paintutils.loadImage("/System/Images/boot") --Turns the boot image into a variable that can be loaded at any time
+local desktopImg = paintutils.loadImage("/System/Images/desktop") --Turns the desktop background image into a variable that can be loaded at any time
+wipe()
 print("Loading Boot Screen...")
 paintutils.drawImage(boot, 1,1) --Displays the boot screen
 os.sleep(2) --Keeps the boot screen loaded for 2 seconds
