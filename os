@@ -29,17 +29,23 @@ local function wipe()
 end
 
 local function BSOD()
-    term.setBackgroundColor(term.isColor
+    term.setBackgroundColor(term.isColor() and colors.blue or colors.black)
+    term.setTextColor(colors.white)
+    center([[Sorry! CarbonOS has Encountered a Serious Error!
+Error: ]] .. tostring(error) .. [[
+Press any key to reboot.]])
+    os.pullEvent("key")
+    os.reboot()
+end
 
 local bootImg = paintutils.loadImage("/System/Images/boot") --Turns the boot image into a variable that can be loaded at any time
 local desktopImg = paintutils.loadImage("/System/Images/desktop") --Turns the desktop background image into a variable that can be loaded at any time
 wipe()
 print("Loading Boot Screen...")
 paintutils.drawImage(boot, 1,1) --Displays the boot screen
-os.sleep(2) --Keeps the boot screen loaded for 2 seconds
-term.setBackgroundColor(colors.brown) --Sets the desktop color to brown
+--os.sleep(2) --Keeps the boot screen loaded for 2 seconds
+term.setBackgroundColor(term.isColor() and colors.brown or colors.lightGrey) --Sets the desktop color to brown (or grey)
 term.clear() --Clears the screen
-term.setCursorPos(1,1)
 paintutils.drawImage(desktop, 1,1) --Displays the desktop
 local w, h = term.getSize()
 term.setCursorPos(1, h)
@@ -49,13 +55,5 @@ local event, x, y, button = os.pullEvent("mouse_click") --Recognizes mouse click
 end
 local ok, error = pcall(init) --Crash API
 if error then
-   term.clear()
-   term.setBackgroundColor(colors.blue)
-   term.setCursorPos(1,1)
-   print("Sorry! CarbonOS has Encountered a Serious Error!")
-   print("Error: ", error)
-   print()
-   print("Press any key to reboot.")
-   os.pullEvent("key")
-   os.reboot()
+   BSOD()
 end
