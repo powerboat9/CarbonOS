@@ -22,7 +22,7 @@ local function init()
     term.setBackgroundColor(colors.green)
     term.setTextColor(colors.white)
     term.setCursorPos(1, h)
-    term.write("Start                        ") --Displays the start button
+    term.write("Start                                      ") --Displays the start button
     local event, x, y, button = os.pullEvent("mouse_click") --Recognizes mouse clicks
 end
 
