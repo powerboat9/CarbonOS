@@ -1,4 +1,4 @@
-function BOSD(err) 
+function BSOD(err) 
    term.setBackgroundColor(colors.blue)
    term.clear()
    term.setCursorPos(1,1)
