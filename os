@@ -8,15 +8,6 @@ function BOSD(err)
    print()
    print("Please report this error at https://github.com/Carbon-OS/CarbonOS/issues!")
 end
-   
-   
-    
-  
-local function redrawDesktop()
-    term.setBackgroundColor(colors.green) 
-    term.setTextColor(colors.white)
-    wipe()
-    term.write("Start") 
 
 local function init()
     local bootImg = paintutils.loadImage("/System/Images/boot")
