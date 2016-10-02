@@ -1,3 +1,5 @@
+-- This is a very old crash handler.
+-- I have kept it here for you to look at it but the new crash handler uses pcall instead of functions
 function crash(message)
    term.setBackgroundColor(colors.blue)
    term.setCursorPos(1,1)
